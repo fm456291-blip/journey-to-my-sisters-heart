@@ -5,20 +5,22 @@
 
 // ---------- Opening Screen ----------
 
-window.addEventListener("load",()=>{
+document.addEventListener("DOMContentLoaded", () => {
 
-    const beat = document.getElementById("heartbeat");
+    const opening = document.getElementById("opening-screen");
 
-    if(beat){
-        beat.volume=0.35;
-        beat.play().catch(()=>{});
-    }
+    setTimeout(() => {
 
-    const opening=document.getElementById("opening-screen");
-
-    setTimeout(()=>{
         opening.classList.add("hide");
-    },3500);
+
+        const beat = document.getElementById("heartbeat");
+
+        if (beat) {
+            beat.volume = 0.35;
+            beat.play().catch(() => {});
+        }
+
+    }, 3500);
 
 });
 // ---------- Typewriter ----------
