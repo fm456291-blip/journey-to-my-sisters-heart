@@ -180,3 +180,61 @@ body{
     z-index:0;
 
 }
+/* ==========================================
+   Cinematic Opening Screen
+========================================== */
+
+#opening-screen{
+
+    position:fixed;
+    inset:0;
+
+    background:#000;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    flex-direction:column;
+
+    z-index:9999;
+
+    transition:opacity 2s ease;
+
+}
+
+#opening-screen.hide{
+
+    opacity:0;
+    pointer-events:none;
+
+}
+
+.opening-content{
+
+    text-align:center;
+
+}
+
+#opening-title{
+
+    font-family:'Cinzel',serif;
+
+    font-size:3rem;
+
+    color:white;
+
+    letter-spacing:3px;
+
+}
+
+#opening-subtitle{
+
+    margin-top:20px;
+
+    color:#cbd5e1;
+
+    font-family:'Cormorant Garamond',serif;
+
+    font-size:1.3rem;
+
+}
