@@ -1,0 +1,46 @@
+/* ==========================================
+   Design Variables
+========================================== */
+
+:root{
+
+    /* Background */
+
+    --bg-primary:#050816;
+    --bg-secondary:#0B1026;
+
+    /* Text */
+
+    --text-main:#ffffff;
+    --text-light:#dbeafe;
+
+    /* Colors */
+
+    --purple:#8b5cf6;
+    --blue:#60a5fa;
+    --pink:#ff6fb5;
+    --gold:#ffd166;
+
+    /* Glow */
+
+    --glow-purple:
+        0 0 20px rgba(139,92,246,.7);
+
+    --glow-blue:
+        0 0 25px rgba(96,165,250,.8);
+
+    /* Radius */
+
+    --radius:50px;
+
+    /* Animation */
+
+    --transition:.4s ease;
+
+    /* Fonts */
+
+    --font-main:'Poppins',sans-serif;
+    --font-title:'Cinzel',serif;
+    --font-subtitle:'Cormorant Garamond',serif;
+
+}
