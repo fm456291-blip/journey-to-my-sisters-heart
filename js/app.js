@@ -1,3 +1,24 @@
+// ===============================
+// Cinematic Opening
+// ===============================
+
+window.addEventListener("load",()=>{
+    const beat = document.getElementById("heartbeat");
+
+if (beat) {
+    beat.volume = 0.35;
+    beat.play().catch(() => {});
+}
+
+    const opening=document.getElementById("opening-screen");
+
+    setTimeout(()=>{
+
+        opening.classList.add("hide");
+
+    },3500);
+
+});
 /* ==========================================
    A Journey To My Sister's Heart
    Main JavaScript
