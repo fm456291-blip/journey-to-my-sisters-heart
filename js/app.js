@@ -5,24 +5,22 @@
 
 // ---------- Opening Screen ----------
 
-window.addEventListener("load", () => {
+window.addEventListener("load",()=>{
 
-    const opening = document.getElementById("opening-screen");
     const beat = document.getElementById("heartbeat");
 
-    if (beat) {
-        beat.volume = 0.30;
-
-        // Browser autoplay ko ignore karega agar allow na ho
-        beat.play().catch(() => {});
+    if(beat){
+        beat.volume=0.35;
+        beat.play().catch(()=>{});
     }
 
-    setTimeout(() => {
+    const opening=document.getElementById("opening-screen");
+
+    setTimeout(()=>{
         opening.classList.add("hide");
-    }, 3500);
+    },3500);
 
 });
-
 // ---------- Typewriter ----------
 
 const messages = [
