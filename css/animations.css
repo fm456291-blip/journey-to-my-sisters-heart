@@ -1,0 +1,262 @@
+/* ==========================================
+   Global
+========================================== */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+
+    font-family:var(--font-main);
+
+    background:linear-gradient(
+        180deg,
+        var(--bg-primary) 0%,
+        var(--bg-secondary) 100%
+    );
+
+    color:var(--text-main);
+
+    overflow:hidden;
+
+    height:100vh;
+
+}
+
+
+/* ==========================================
+   Opening Screen
+========================================== */
+
+#opening-screen{
+
+    position:fixed;
+
+    inset:0;
+
+    background:#000;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    z-index:9999;
+
+    transition:opacity 2s ease;
+
+}
+
+#opening-screen.hide{
+
+    opacity:0;
+
+    pointer-events:none;
+
+}
+
+.opening-content{
+
+    text-align:center;
+
+}
+
+#opening-title{
+
+    font-family:var(--font-title);
+
+    font-size:4rem;
+
+    letter-spacing:3px;
+
+    color:#fff;
+
+    text-shadow:0 0 40px rgba(255,255,255,.35);
+
+}
+
+#opening-subtitle{
+
+    margin-top:20px;
+
+    font-family:var(--font-subtitle);
+
+    font-size:1.5rem;
+
+    color:#dbeafe;
+
+}
+
+
+/* ==========================================
+   Intro
+========================================== */
+
+#intro{
+
+    position:relative;
+
+    width:100%;
+
+    height:100vh;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    text-align:center;
+
+    overflow:hidden;
+
+    transition:1s;
+
+}
+
+
+/* ==========================================
+   Intro Content
+========================================== */
+
+.intro-content{
+
+    position:relative;
+
+    z-index:5;
+
+    width:90%;
+
+    max-width:950px;
+
+}
+
+
+/* ==========================================
+   Typewriter
+========================================== */
+
+#typewriter{
+
+    font-size:2.3rem;
+
+    line-height:1.8;
+
+    color:white;
+
+    min-height:220px;
+
+    margin-bottom:60px;
+
+}
+
+
+/* ==========================================
+   Button
+========================================== */
+
+#startBtn{
+
+    border:none;
+
+    cursor:pointer;
+
+    padding:20px 55px;
+
+    border-radius:60px;
+
+    color:white;
+
+    font-size:1.2rem;
+
+    background:linear-gradient(
+        135deg,
+        var(--purple),
+        var(--blue)
+    );
+
+    box-shadow:var(--glow-blue);
+
+    transition:.4s;
+
+}
+
+#startBtn:hover{
+
+    transform:translateY(-6px) scale(1.05);
+
+}
+
+
+/* ==========================================
+   Stars
+========================================== */
+
+#stars{
+
+    position:absolute;
+
+    left:0;
+
+    top:0;
+
+    width:100%;
+
+    height:100%;
+
+    overflow:hidden;
+
+    z-index:0;
+
+}
+
+.star{
+
+    position:absolute;
+
+    background:white;
+
+    border-radius:50%;
+
+}
+
+
+/* ==========================================
+   Aurora
+========================================== */
+
+.aurora{
+
+    position:absolute;
+
+    width:700px;
+
+    height:700px;
+
+    top:-220px;
+
+    left:-180px;
+
+    background:radial-gradient(
+
+        circle,
+
+        rgba(139,92,246,.30),
+
+        transparent 70%
+
+    );
+
+    filter:blur(70px);
+
+    z-index:1;
+
+}
