@@ -96,8 +96,10 @@ for (let i = 0; i < 220; i++) {
 
 // ---------- Button ----------
 
-document.getElementById("startBtn").addEventListener("click", () => {
+document
+.getElementById("startBtn")
+.addEventListener("click",()=>{
 
-    alert("✨ Chapter 1 Coming Next... ❤️");
+    window.location.href="chapters/chapter1.html";
 
 });
