@@ -260,3 +260,92 @@ body{
     z-index:1;
 
 }
+/* =========================
+   Chapter Page
+========================= */
+
+.chapter{
+
+    width:100%;
+
+    height:100vh;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    text-align:center;
+
+    position:relative;
+
+}
+
+.chapter-box{
+
+    position:relative;
+
+    z-index:5;
+
+    max-width:900px;
+
+    padding:40px;
+
+}
+
+.chapter-number{
+
+    color:var(--gold);
+
+    letter-spacing:4px;
+
+    margin-bottom:20px;
+
+    font-size:1rem;
+
+    text-transform:uppercase;
+
+}
+
+.chapter-title{
+
+    font-size:4rem;
+
+    color:white;
+
+    margin-bottom:30px;
+
+    font-family:'Cinzel',serif;
+
+}
+
+.chapter-text{
+
+    color:#dbe4ff;
+
+    line-height:2;
+
+    font-size:1.3rem;
+
+    margin-bottom:50px;
+
+}
+
+#nextBtn{
+
+    border:none;
+
+    cursor:pointer;
+
+    padding:18px 45px;
+
+    border-radius:999px;
+
+    background:linear-gradient(135deg,var(--purple),var(--blue));
+
+    color:white;
+
+    font-size:1.1rem;
+
+}
