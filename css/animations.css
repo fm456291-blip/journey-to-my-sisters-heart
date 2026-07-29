@@ -1,262 +1,159 @@
 /* ==========================================
-   Global
+   Aurora Animation
 ========================================== */
 
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
+@keyframes auroraMove{
+
+    0%{
+        transform:translate(0,0) scale(1);
+    }
+
+    50%{
+        transform:translate(120px,70px) scale(1.2);
+    }
+
+    100%{
+        transform:translate(0,0) scale(1);
+    }
+
 }
 
-html{
-    scroll-behavior:smooth;
-}
+.aurora{
 
-body{
-
-    font-family:var(--font-main);
-
-    background:linear-gradient(
-        180deg,
-        var(--bg-primary) 0%,
-        var(--bg-secondary) 100%
-    );
-
-    color:var(--text-main);
-
-    overflow:hidden;
-
-    height:100vh;
+    animation:auroraMove 12s ease-in-out infinite;
 
 }
 
 
 /* ==========================================
-   Opening Screen
+   Fade Up
 ========================================== */
 
-#opening-screen{
+@keyframes fadeUp{
 
-    position:fixed;
+    from{
 
-    inset:0;
+        opacity:0;
 
-    background:#000;
+        transform:translateY(40px);
 
-    display:flex;
+    }
 
-    justify-content:center;
+    to{
 
-    align-items:center;
+        opacity:1;
 
-    z-index:9999;
+        transform:translateY(0);
 
-    transition:opacity 2s ease;
-
-}
-
-#opening-screen.hide{
-
-    opacity:0;
-
-    pointer-events:none;
+    }
 
 }
-
-.opening-content{
-
-    text-align:center;
-
-}
-
-#opening-title{
-
-    font-family:var(--font-title);
-
-    font-size:4rem;
-
-    letter-spacing:3px;
-
-    color:#fff;
-
-    text-shadow:0 0 40px rgba(255,255,255,.35);
-
-}
-
-#opening-subtitle{
-
-    margin-top:20px;
-
-    font-family:var(--font-subtitle);
-
-    font-size:1.5rem;
-
-    color:#dbeafe;
-
-}
-
-
-/* ==========================================
-   Intro
-========================================== */
-
-#intro{
-
-    position:relative;
-
-    width:100%;
-
-    height:100vh;
-
-    display:flex;
-
-    justify-content:center;
-
-    align-items:center;
-
-    text-align:center;
-
-    overflow:hidden;
-
-    transition:1s;
-
-}
-
-
-/* ==========================================
-   Intro Content
-========================================== */
 
 .intro-content{
 
-    position:relative;
-
-    z-index:5;
-
-    width:90%;
-
-    max-width:950px;
+    animation:fadeUp 2s ease;
 
 }
 
 
 /* ==========================================
-   Typewriter
+   Button Glow
 ========================================== */
 
-#typewriter{
+@keyframes pulseGlow{
 
-    font-size:2.3rem;
+    0%{
 
-    line-height:1.8;
+        box-shadow:0 0 20px rgba(139,92,246,.6);
 
-    color:white;
+    }
 
-    min-height:220px;
+    50%{
 
-    margin-bottom:60px;
+        box-shadow:0 0 45px rgba(96,165,250,.9);
+
+    }
+
+    100%{
+
+        box-shadow:0 0 20px rgba(139,92,246,.6);
+
+    }
 
 }
-
-
-/* ==========================================
-   Button
-========================================== */
 
 #startBtn{
 
-    border:none;
-
-    cursor:pointer;
-
-    padding:20px 55px;
-
-    border-radius:60px;
-
-    color:white;
-
-    font-size:1.2rem;
-
-    background:linear-gradient(
-        135deg,
-        var(--purple),
-        var(--blue)
-    );
-
-    box-shadow:var(--glow-blue);
-
-    transition:.4s;
-
-}
-
-#startBtn:hover{
-
-    transform:translateY(-6px) scale(1.05);
+    animation:pulseGlow 2.5s infinite;
 
 }
 
 
 /* ==========================================
-   Stars
+   Twinkling Stars
 ========================================== */
 
-#stars{
+@keyframes twinkle{
 
-    position:absolute;
+    0%{
 
-    left:0;
+        opacity:.2;
 
-    top:0;
+        transform:scale(.8);
 
-    width:100%;
+    }
 
-    height:100%;
+    50%{
 
-    overflow:hidden;
+        opacity:1;
 
-    z-index:0;
+        transform:scale(1.3);
+
+    }
+
+    100%{
+
+        opacity:.2;
+
+        transform:scale(.8);
+
+    }
 
 }
 
 .star{
 
-    position:absolute;
-
-    background:white;
-
-    border-radius:50%;
+    animation:twinkle 3s ease-in-out infinite;
 
 }
 
 
 /* ==========================================
-   Aurora
+   Opening Title
 ========================================== */
 
-.aurora{
+@keyframes introZoom{
 
-    position:absolute;
+    from{
 
-    width:700px;
+        opacity:0;
 
-    height:700px;
+        transform:scale(.7);
 
-    top:-220px;
+    }
 
-    left:-180px;
+    to{
 
-    background:radial-gradient(
+        opacity:1;
 
-        circle,
+        transform:scale(1);
 
-        rgba(139,92,246,.30),
+    }
 
-        transparent 70%
+}
 
-    );
+#opening-title{
 
-    filter:blur(70px);
-
-    z-index:1;
+    animation:introZoom 2s ease;
 
 }
