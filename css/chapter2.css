@@ -1,0 +1,218 @@
+/* ==========================================
+   Chapter 2
+========================================== */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+
+    font-family:var(--font-main);
+
+    background:linear-gradient(135deg,#050816,#0b1026);
+
+    color:white;
+
+    overflow:hidden;
+
+    height:100vh;
+
+}
+
+/* Stars */
+
+#stars{
+
+    position:fixed;
+
+    inset:0;
+
+    overflow:hidden;
+
+    z-index:0;
+
+}
+
+.star{
+
+    position:absolute;
+
+    background:white;
+
+    border-radius:50%;
+
+    animation:twinkle 3s infinite ease-in-out;
+
+}
+
+@keyframes twinkle{
+
+0%{
+opacity:.2;
+transform:scale(.8);
+}
+
+50%{
+opacity:1;
+transform:scale(1.4);
+}
+
+100%{
+opacity:.2;
+transform:scale(.8);
+}
+
+}
+
+/* Layout */
+
+.chapter-container{
+
+    position:relative;
+
+    z-index:2;
+
+    width:100%;
+
+    height:100vh;
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:center;
+
+    align-items:center;
+
+    padding:40px;
+
+    text-align:center;
+
+}
+
+.chapter-container h3{
+
+    color:#9D4EDD;
+
+    letter-spacing:3px;
+
+    margin-bottom:10px;
+
+}
+
+.chapter-container h1{
+
+    font-size:52px;
+
+    margin-bottom:40px;
+
+}
+
+/* Glass Card */
+
+.memory-card{
+
+    width:900px;
+
+    max-width:95%;
+
+    display:flex;
+
+    align-items:center;
+
+    gap:35px;
+
+    background:rgba(255,255,255,.08);
+
+    backdrop-filter:blur(20px);
+
+    border:1px solid rgba(255,255,255,.15);
+
+    border-radius:25px;
+
+    padding:30px;
+
+    box-shadow:0 0 40px rgba(93,169,255,.20);
+
+}
+
+/* Image */
+
+.memory-photo{
+
+    width:300px;
+
+    border-radius:20px;
+
+    animation:floatImage 4s ease-in-out infinite;
+
+}
+
+@keyframes floatImage{
+
+0%{
+transform:translateY(0);
+}
+
+50%{
+transform:translateY(-12px);
+}
+
+100%{
+transform:translateY(0);
+}
+
+}
+
+/* Story */
+
+#story{
+
+    text-align:left;
+
+    font-size:22px;
+
+    line-height:1.9;
+
+    color:#dbe4ff;
+
+    min-height:320px;
+
+}
+
+/* Button */
+
+#nextBtn{
+
+    margin-top:40px;
+
+    border:none;
+
+    cursor:pointer;
+
+    padding:18px 45px;
+
+    border-radius:999px;
+
+    color:white;
+
+    font-size:18px;
+
+    background:linear-gradient(135deg,#9D4EDD,#5DA9FF);
+
+    box-shadow:0 0 30px rgba(93,169,255,.45);
+
+    transition:.4s;
+
+}
+
+#nextBtn:hover{
+
+    transform:scale(1.05);
+
+    box-shadow:0 0 50px rgba(93,169,255,.8);
+
+}
