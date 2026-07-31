@@ -23,7 +23,5 @@ for (let i = 0; i < 250; i++) {
 }
 
 document.getElementById("nextBtn").addEventListener("click", () => {
-
-    alert("Chapter 2 Coming Soon ❤️");
-
+    window.location.href = "chapter2.html";
 });
