@@ -1,12 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
 
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Chapter 3 | Beautiful Memories</title>
+<title>Beautiful Memories</title>
 
 <link rel="stylesheet" href="../css/variables.css">
 <link rel="stylesheet" href="../css/style.css">
@@ -24,28 +23,47 @@
     <source src="../assets/music/Piano.mp3" type="audio/mpeg">
 </audio>
 
-<div class="chapter-container">
+<div class="container">
 
-    <h3>Chapter Three</h3>
+<h3>CHAPTER THREE</h3>
 
-    <h1>Beautiful Memories</h1>
+<h1>Beautiful Memories</h1>
 
-    <div class="gallery">
+<p class="subtitle">
+Every picture hides a beautiful memory ❤️
+</p>
 
-        <img id="memoryImage" src="../assets/images/image2.jpeg">
+<div class="gallery">
 
-    </div>
+<img src="../assets/images/image2.jpeg" class="photo" data-index="0">
 
-    <p id="memoryText"></p>
+<img src="../assets/images/image3.jpg" class="photo" data-index="1">
 
-    <button id="nextBtn">
-        Continue →
-    </button>
+<img src="../assets/images/image4.jpeg" class="photo" data-index="2">
+
+<img src="../assets/images/image5.jpeg" class="photo" data-index="3">
+
+<img src="../assets/images/image6.jpeg" class="photo" data-index="4">
+
+</div>
+
+</div>
+
+<div class="popup" id="popup">
+
+<div class="memory-card">
+
+<span id="close">&times;</span>
+
+<img id="popupImage">
+
+<p id="popupText"></p>
+
+</div>
 
 </div>
 
 <script src="../js/chapter3.js"></script>
 
 </body>
-
 </html>

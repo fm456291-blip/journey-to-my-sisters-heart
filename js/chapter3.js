@@ -1,20 +1,20 @@
 // ==========================================
-// Chapter 3 - Beautiful Memories
+// Chapter 3 - Memory Wall
 // ==========================================
 
-// -------- Piano Music --------
+// ---------- Piano Music ----------
 
 const music = document.getElementById("bgMusic");
 
 window.addEventListener("DOMContentLoaded", () => {
 
-    music.volume = 0.4;
+    music.volume = 0.35;
 
     music.play().catch(() => {});
 
 });
 
-// -------- Stars --------
+// ---------- Stars ----------
 
 const stars = document.getElementById("stars");
 
@@ -32,101 +32,113 @@ for(let i=0;i<220;i++){
     star.style.left=Math.random()*100+"%";
     star.style.top=Math.random()*100+"%";
 
-    star.style.animationDelay=Math.random()*4+"s";
+    star.style.animationDelay=Math.random()*5+"s";
 
     stars.appendChild(star);
 
 }
 
-// -------- Gallery --------
+// ---------- Memories ----------
 
-const images=[
+const memories = [
 
-    "../assets/images/image2.jpeg",
-    "../assets/images/image3.jpg",
-    "../assets/images/image4.jpeg",
-    "../assets/images/image5.jpeg",
-    "../assets/images/image6.jpeg"
+{
+image:"../assets/images/image2.jpeg",
+text:"This was one of those moments that still makes me smile. ❤️"
+},
+
+{
+image:"../assets/images/image3.jpg",
+text:"Some memories are priceless because they were spent with you."
+},
+
+{
+image:"../assets/images/image4.jpeg",
+text:"Life became brighter after you became part of it."
+},
+
+{
+image:"../assets/images/image5.jpeg",
+text:"Every laugh, every smile... still lives in my heart."
+},
+
+{
+image:"../assets/images/image6.jpeg",
+text:"You are not just my friend... you are my sister forever. 💖"
+}
 
 ];
 
-const stories=[
+// ---------- Elements ----------
 
-    "Every memory with you became a beautiful chapter of my life ❤️",
+const photos=document.querySelectorAll(".photo");
 
-    "Some moments were simple... but because you were there, they became unforgettable.",
+const popup=document.getElementById("popup");
 
-    "Your smile always turned ordinary days into beautiful memories.",
+const popupImage=document.getElementById("popupImage");
 
-    "Looking back at these moments always brings peace to my heart.",
+const popupText=document.getElementById("popupText");
 
-    "I never imagined that one day someone would become my sister without sharing the same blood."
+const close=document.getElementById("close");
 
-];
+// ---------- Typewriter ----------
 
-const image=document.getElementById("memoryImage");
-const text=document.getElementById("memoryText");
+function typeWriter(text){
 
-let index=0;
+popupText.innerHTML="";
 
-// -------- Typing Effect --------
+let i=0;
 
-function typeStory(sentence){
+function typing(){
 
-    text.innerHTML="";
+if(i<text.length){
 
-    let i=0;
+popupText.innerHTML+=text.charAt(i);
 
-    function type(){
+i++;
 
-        if(i<sentence.length){
-
-            text.innerHTML+=sentence.charAt(i);
-
-            i++;
-
-            setTimeout(type,35);
-
-        }
-
-    }
-
-    type();
+setTimeout(typing,30);
 
 }
 
-typeStory(stories[0]);
+}
 
-// -------- Slideshow --------
+typing();
 
-setInterval(()=>{
+}
 
-    index++;
+// ---------- Photo Click ----------
 
-    if(index>=images.length){
+photos.forEach(photo=>{
 
-        index=0;
+photo.addEventListener("click",()=>{
 
-    }
+const index=photo.dataset.index;
 
-    image.style.opacity=0;
+popup.style.display="flex";
 
-    setTimeout(()=>{
+popupImage.src=memories[index].image;
 
-        image.src=images[index];
-
-        image.style.opacity=1;
-
-        typeStory(stories[index]);
-
-    },500);
-
-},7000);
-
-// -------- Continue Button --------
-
-document.getElementById("nextBtn").addEventListener("click",()=>{
-
-    window.location.href="chapter4.html";
+typeWriter(memories[index].text);
 
 });
+
+});
+
+// ---------- Close ----------
+
+close.onclick=()=>{
+
+popup.style.display="none";
+
+}
+
+window.onclick=(e)=>{
+
+if(e.target===popup){
+
+popup.style.display="none";
+
+}
+
+}
