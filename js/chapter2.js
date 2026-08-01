@@ -66,7 +66,7 @@ const music = document.getElementById("bgMusic");
 
 document.body.addEventListener("click", () => {
 
-    music.volume = 0.35;
+    music.volume = 0.45;
 
     music.play().catch(() => {});
 
