@@ -1,3 +1,12 @@
+const music = document.getElementById("bgMusic");
+
+window.addEventListener("DOMContentLoaded", () => {
+    music.volume = 0.4;
+
+    music.play().catch(() => {
+        console.log("Autoplay blocked");
+    });
+});
 const stars = document.getElementById("stars");
 
 for (let i = 0; i < 250; i++) {
