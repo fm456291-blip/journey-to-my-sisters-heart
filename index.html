@@ -4,38 +4,83 @@
 <head>
 
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>A Journey To My Sister's Heart ❤️</title>
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 
-    <!-- Google Fonts -->
+    <title>For Kanwal ❤️</title>
+
+    <!-- =========================
+         GOOGLE FONTS
+    ========================== -->
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Cinzel:wght@400;600;700&family=Cormorant+Garamond:wght@400;600&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Cinzel:wght@400;600;700&family=Cormorant+Garamond:wght@400;600&display=swap"
+        rel="stylesheet"
+    >
 
-    <!-- CSS -->
-     <link rel="manifest" href="manifest.json">
+
+    <!-- =========================
+         PWA / APP SETTINGS
+    ========================== -->
+
+    <link rel="manifest" href="manifest.json">
+
+    <meta name="theme-color" content="#06091f">
+
+    <!-- iPhone / iPad -->
+
+    <meta name="apple-mobile-web-app-capable" content="yes">
+
+    <meta
+        name="apple-mobile-web-app-status-bar-style"
+        content="black-translucent"
+    >
+
+    <meta
+        name="apple-mobile-web-app-title"
+        content="For Kanwal"
+    >
+
+
+    <!-- =========================
+         CSS
+    ========================== -->
+
     <link rel="stylesheet" href="css/variables.css">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/animations.css">
     <link rel="stylesheet" href="css/responsive.css">
-    <meta name="theme-color" content="#06091f">
 
-<meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-<meta name="apple-mobile-web-app-title" content="For Kanwal">
 
 </head>
 
+
 <body>
 
-    <!-- Heartbeat -->
+
+    <!-- =========================
+         HEARTBEAT
+    ========================== -->
+
     <audio id="heartbeat" preload="auto">
-        <source src="assets/music/heartbeat.mp3" type="audio/mpeg">
+
+        <source
+            src="assets/music/heartbeat.mp3"
+            type="audio/mpeg"
+        >
+
     </audio>
 
-    <!-- Opening Screen -->
+
+
+    <!-- =========================
+         OPENING SCREEN
+    ========================== -->
+
     <div id="opening-screen">
 
         <div class="opening-content">
@@ -51,38 +96,47 @@
         </div>
 
     </div>
-    <!-- Headphone Message -->
 
-<div id="headphone-screen">
 
-    <div class="headphone-content">
 
-        <div class="headphone-icon">
-            🎧
+    <!-- =========================
+         HEADPHONE SCREEN
+    ========================== -->
+
+    <div id="headphone-screen">
+
+        <div class="headphone-content">
+
+            <div class="headphone-icon">
+                🎧
+            </div>
+
+            <p class="headphone-label">
+                BEFORE WE BEGIN
+            </p>
+
+            <h2>
+                Put On Your Headphones
+            </h2>
+
+            <p>
+                This little journey has sounds,<br>
+                memories and a few surprises waiting for you... ❤️
+            </p>
+
+            <button id="headphoneBtn">
+                🎧 I'm Ready — Start The Journey
+            </button>
+
         </div>
-
-        <p class="headphone-label">
-            BEFORE WE BEGIN
-        </p>
-
-        <h2>
-            Put On Your Headphones
-        </h2>
-
-        <p>
-            This little journey has sounds,<br>
-            memories and a few surprises waiting for you... ❤️
-        </p>
-
-        <button id="headphoneBtn">
-            🎧 I'm Ready — Start The Journey
-        </button>
 
     </div>
 
-</div>
 
-    <!-- Main Intro -->
+
+    <!-- =========================
+         MAIN INTRO
+    ========================== -->
 
     <section id="intro">
 
@@ -102,10 +156,51 @@
 
     </section>
 
-    <!-- JS -->
+
+
+    <!-- =========================
+         JAVASCRIPT
+    ========================== -->
 
     <script src="js/app.js"></script>
+
     <script src="js/animations.js"></script>
+
+
+
+    <!-- =========================
+         SERVICE WORKER
+         FOR APP INSTALLATION
+    ========================== -->
+
+    <script>
+
+        if ("serviceWorker" in navigator) {
+
+            window.addEventListener("load", () => {
+
+                navigator.serviceWorker
+                    .register("./service-worker.js")
+                    .then(() => {
+
+                        console.log("PWA ready ❤️");
+
+                    })
+                    .catch((error) => {
+
+                        console.log(
+                            "Service Worker Error:",
+                            error
+                        );
+
+                    });
+
+            });
+
+        }
+
+    </script>
+
 
 </body>
 
