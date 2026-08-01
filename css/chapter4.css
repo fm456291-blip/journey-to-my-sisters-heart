@@ -1,4 +1,6 @@
 body{
+     overflow-x:hidden;
+    overflow-y:auto;
     margin:0;
     font-family:Arial, Helvetica, sans-serif;
     background:#06091f;
