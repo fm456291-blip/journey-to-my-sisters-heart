@@ -1,0 +1,138 @@
+/* ==========================================
+   Chapter 3 - Beautiful Memories
+========================================== */
+
+body{
+    overflow:hidden;
+}
+
+/* Main Container */
+
+.chapter-container{
+
+    position:relative;
+
+    z-index:10;
+
+    width:100%;
+    height:100vh;
+
+    display:flex;
+    flex-direction:column;
+
+    justify-content:center;
+    align-items:center;
+
+    text-align:center;
+
+    padding:30px;
+
+}
+
+/* Titles */
+
+.chapter-container h3{
+
+    color:var(--gold);
+
+    font-size:1.2rem;
+
+    letter-spacing:3px;
+
+    margin-bottom:15px;
+
+}
+
+.chapter-container h1{
+
+    color:white;
+
+    font-size:3rem;
+
+    margin-bottom:40px;
+
+}
+
+/* Gallery */
+
+.gallery{
+
+    width:380px;
+
+    height:480px;
+
+    border-radius:25px;
+
+    overflow:hidden;
+
+    box-shadow:0 0 40px rgba(255,255,255,.12);
+
+    margin-bottom:35px;
+
+}
+
+.gallery img{
+
+    width:100%;
+
+    height:100%;
+
+    object-fit:cover;
+
+    transition:1s;
+
+}
+
+/* Memory Text */
+
+#memoryText{
+
+    max-width:850px;
+
+    color:white;
+
+    font-size:1.35rem;
+
+    line-height:1.8;
+
+    min-height:120px;
+
+    margin-bottom:40px;
+
+}
+
+/* Continue Button */
+
+#nextBtn{
+
+    border:none;
+
+    cursor:pointer;
+
+    padding:18px 55px;
+
+    border-radius:999px;
+
+    background:linear-gradient(
+        135deg,
+        var(--purple),
+        var(--blue)
+    );
+
+    color:white;
+
+    font-size:1.05rem;
+
+    box-shadow:var(--glow-purple);
+
+    transition:.4s;
+
+}
+
+#nextBtn:hover{
+
+    transform:scale(1.06);
+
+    box-shadow:var(--glow-blue);
+
+}
