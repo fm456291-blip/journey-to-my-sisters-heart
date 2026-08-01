@@ -152,14 +152,14 @@ popup.style.display="none";
 
 }
 // ==========================================
-// GHAZAL VIDEO + PIANO MUSIC SWITCH
+// GHAZAL VIDEO + PIANO CONTROL
 // ==========================================
 
 const ghazalVideo = document.getElementById("ghazalVideo");
 
-if (ghazalVideo) {
+if (ghazalVideo && music) {
 
-    // When Ghazal starts
+    // Video PLAY → Piano OFF
     ghazalVideo.addEventListener("play", () => {
 
         music.pause();
@@ -167,7 +167,7 @@ if (ghazalVideo) {
     });
 
 
-    // When Ghazal is paused
+    // Video PAUSE → Piano ON
     ghazalVideo.addEventListener("pause", () => {
 
         if (!ghazalVideo.ended) {
@@ -179,8 +179,10 @@ if (ghazalVideo) {
     });
 
 
-    // When Ghazal finishes
+    // Video END → Piano ON
     ghazalVideo.addEventListener("ended", () => {
+
+        music.currentTime = 0;
 
         music.play().catch(() => {});
 
