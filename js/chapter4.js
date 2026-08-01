@@ -288,3 +288,83 @@ document.getElementById("solveBtn").addEventListener("click",()=>{
     },1000);
 
 });
+// ===============================
+// CHAPTER 4 - SUCCESS & MUSIC
+// ===============================
+
+const solveBtn = document.getElementById("solveBtn");
+const successBox = document.getElementById("successBox");
+const continueBtn = document.getElementById("continueBtn");
+const bgMusic = document.getElementById("bgMusic");
+
+
+// Start music
+window.addEventListener("load", () => {
+
+    bgMusic.volume = 0.45;
+
+    bgMusic.play().catch(() => {
+        console.log("Music will start after user interaction.");
+    });
+
+});
+
+
+// Start music when user interacts
+document.addEventListener("click", () => {
+
+    if (bgMusic.paused) {
+        bgMusic.play().catch(() => {});
+    }
+
+}, { once: true });
+
+
+// ===============================
+// HELP BUTTON
+// ===============================
+
+solveBtn.addEventListener("click", () => {
+
+    // Arrange puzzle pieces automatically
+    const pieces = [...document.querySelectorAll(".puzzle-piece")];
+
+    pieces.sort((a, b) => {
+        return Number(a.dataset.correct) - Number(b.dataset.correct);
+    });
+
+    pieces.forEach(piece => {
+        puzzle.appendChild(piece);
+    });
+
+    // Hide help button
+    solveBtn.style.display = "none";
+
+    // Show success message
+    setTimeout(() => {
+
+        successBox.classList.remove("hidden");
+
+        successBox.scrollIntoView({
+            behavior: "smooth",
+            block: "center"
+        });
+
+    }, 800);
+
+});
+
+
+// ===============================
+// CONTINUE BUTTON
+// ===============================
+
+continueBtn.addEventListener("click", () => {
+
+    document.getElementById("quizSection").classList.remove("hidden");
+
+    document.getElementById("quizSection").scrollIntoView({
+        behavior: "smooth"
+    });
+
+});
