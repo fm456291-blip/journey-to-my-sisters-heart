@@ -2,8 +2,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const puzzle = document.getElementById("puzzle");
     const successBox = document.getElementById("successBox");
+    const solveBtn = document.getElementById("solveBtn");
     const continueBtn = document.getElementById("continueBtn");
     const quizSection = document.getElementById("quizSection");
+    const bgMusic = document.getElementById("bgMusic");
 
     const imagePath = "../assets/images/image11.jpeg";
 
@@ -15,24 +17,46 @@ document.addEventListener("DOMContentLoaded", () => {
     let draggedPiece = null;
 
 
-    // ============================
+    // =====================================
+    // MUSIC
+    // =====================================
+
+    bgMusic.volume = 0.45;
+
+    // Browser may block autoplay.
+    // Music will start after first click if blocked.
+
+    bgMusic.play().catch(() => {
+        console.log("Music will start after user interaction.");
+    });
+
+    document.addEventListener("click", () => {
+
+        if (bgMusic.paused) {
+            bgMusic.play().catch(() => {});
+        }
+
+    }, { once: true });
+
+
+    // =====================================
     // CREATE PUZZLE
-    // ============================
+    // =====================================
 
     function createPuzzle() {
 
         puzzle.innerHTML = "";
+
         pieces = [];
         selectedPiece = null;
 
-        // Correct positions
         let numbers = [];
 
         for (let i = 0; i < TOTAL; i++) {
             numbers.push(i);
         }
 
-        // Shuffle
+        // Shuffle pieces
         do {
             numbers.sort(() => Math.random() - 0.5);
         } while (isSolved(numbers));
@@ -47,7 +71,8 @@ document.addEventListener("DOMContentLoaded", () => {
             piece.dataset.correct = correctPosition;
             piece.dataset.position = currentPosition;
 
-            piece.style.backgroundImage = `url("${imagePath}")`;
+            piece.style.backgroundImage =
+                `url("${imagePath}")`;
 
             const row = Math.floor(correctPosition / SIZE);
             const col = correctPosition % SIZE;
@@ -62,20 +87,29 @@ document.addEventListener("DOMContentLoaded", () => {
             pieces.push(piece);
 
 
+            // =================================
             // CLICK TO SELECT / SWAP
+            // =================================
+
             piece.addEventListener("click", () => {
 
                 if (!selectedPiece) {
 
                     selectedPiece = piece;
+
                     piece.classList.add("selected");
 
-                } else if (selectedPiece === piece) {
+                }
+
+                else if (selectedPiece === piece) {
 
                     piece.classList.remove("selected");
+
                     selectedPiece = null;
 
-                } else {
+                }
+
+                else {
 
                     swapPieces(selectedPiece, piece);
 
@@ -84,12 +118,16 @@ document.addEventListener("DOMContentLoaded", () => {
                     selectedPiece = null;
 
                     checkPuzzle();
+
                 }
 
             });
 
 
+            // =================================
             // DRAG START
+            // =================================
+
             piece.addEventListener("dragstart", () => {
 
                 draggedPiece = piece;
@@ -99,7 +137,10 @@ document.addEventListener("DOMContentLoaded", () => {
             });
 
 
+            // =================================
             // DRAG END
+            // =================================
+
             piece.addEventListener("dragend", () => {
 
                 piece.classList.remove("dragging");
@@ -109,7 +150,10 @@ document.addEventListener("DOMContentLoaded", () => {
             });
 
 
+            // =================================
             // DRAG OVER
+            // =================================
+
             piece.addEventListener("dragover", (e) => {
 
                 e.preventDefault();
@@ -117,12 +161,18 @@ document.addEventListener("DOMContentLoaded", () => {
             });
 
 
+            // =================================
             // DROP
+            // =================================
+
             piece.addEventListener("drop", (e) => {
 
                 e.preventDefault();
 
-                if (draggedPiece && draggedPiece !== piece) {
+                if (
+                    draggedPiece &&
+                    draggedPiece !== piece
+                ) {
 
                     swapPieces(draggedPiece, piece);
 
@@ -137,33 +187,33 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
 
-    // ============================
-    // SWAP TWO PIECES
-    // ============================
+    // =====================================
+    // SWAP PIECES
+    // =====================================
 
     function swapPieces(piece1, piece2) {
 
-        const parent = puzzle;
-
-        const children = [...parent.children];
+        const children = [...puzzle.children];
 
         const index1 = children.indexOf(piece1);
         const index2 = children.indexOf(piece2);
 
         if (index1 < index2) {
 
-            parent.insertBefore(piece2, piece1);
+            puzzle.insertBefore(piece2, piece1);
 
-            parent.insertBefore(
+            puzzle.insertBefore(
                 piece1,
                 children[index2].nextSibling
             );
 
-        } else {
+        }
 
-            parent.insertBefore(piece1, piece2);
+        else {
 
-            parent.insertBefore(
+            puzzle.insertBefore(piece1, piece2);
+
+            puzzle.insertBefore(
                 piece2,
                 children[index1].nextSibling
             );
@@ -175,9 +225,9 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
 
-    // ============================
+    // =====================================
     // UPDATE POSITIONS
-    // ============================
+    // =====================================
 
     function updatePositions() {
 
@@ -192,9 +242,9 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
 
-    // ============================
+    // =====================================
     // CHECK PUZZLE
-    // ============================
+    // =====================================
 
     function checkPuzzle() {
 
@@ -204,7 +254,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
         currentPieces.forEach((piece, index) => {
 
-            if (Number(piece.dataset.correct) !== index) {
+            if (
+                Number(piece.dataset.correct) !== index
+            ) {
 
                 correct = false;
 
@@ -215,156 +267,102 @@ document.addEventListener("DOMContentLoaded", () => {
 
         if (correct) {
 
-            setTimeout(() => {
-
-                puzzle.style.pointerEvents = "none";
-
-                successBox.classList.remove("hidden");
-
-                successBox.scrollIntoView({
-                    behavior: "smooth",
-                    block: "center"
-                });
-
-            }, 500);
+            showSuccess();
 
         }
 
     }
 
 
-    // ============================
-    // CHECK SOLVED
-    // ============================
+    // =====================================
+    // SHOW SUCCESS
+    // =====================================
+
+    function showSuccess() {
+
+        puzzle.style.pointerEvents = "none";
+
+        solveBtn.style.display = "none";
+
+        setTimeout(() => {
+
+            successBox.classList.remove("hidden");
+
+            successBox.scrollIntoView({
+                behavior: "smooth",
+                block: "center"
+            });
+
+        }, 600);
+
+    }
+
+
+    // =====================================
+    // HELP / AUTO SOLVE
+    // =====================================
+
+    solveBtn.addEventListener("click", () => {
+
+        const currentPieces =
+            [...puzzle.querySelectorAll(".puzzle-piece")];
+
+        currentPieces.sort((a, b) => {
+
+            return (
+                Number(a.dataset.correct) -
+                Number(b.dataset.correct)
+            );
+
+        });
+
+        currentPieces.forEach(piece => {
+
+            puzzle.appendChild(piece);
+
+        });
+
+        updatePositions();
+
+        showSuccess();
+
+    });
+
+
+    // =====================================
+    // CHECK SOLVED ARRAY
+    // =====================================
 
     function isSolved(array) {
 
-        return array.every((value, index) => value === index);
+        return array.every(
+            (value, index) => value === index
+        );
 
     }
 
 
-    // ============================
-    // CONTINUE BUTTON
-    // ============================
+    // =====================================
+    // CONTINUE → QUIZ
+    // =====================================
 
-    if (continueBtn) {
+    continueBtn.addEventListener("click", () => {
 
-        continueBtn.addEventListener("click", () => {
+        successBox.classList.add("hidden");
 
-            successBox.classList.add("hidden");
+        quizSection.classList.remove("hidden");
 
-            quizSection.classList.remove("hidden");
-
-            quizSection.scrollIntoView({
-                behavior: "smooth"
-            });
-
+        quizSection.scrollIntoView({
+            behavior: "smooth"
         });
 
-    }
+    });
 
 
-    // START
+    // =====================================
+    // START PUZZLE
+    // =====================================
+
     createPuzzle();
-
-});
-document.getElementById("solveBtn").addEventListener("click",()=>{
-
-    const pieces=[...document.querySelectorAll(".puzzle-piece")];
-
-    pieces
-    .sort((a,b)=>a.dataset.correct-b.dataset.correct)
-    .forEach(piece=>puzzle.appendChild(piece));
-
-    setTimeout(()=>{
-
-        successBox.classList.remove("hidden");
-
-        successBox.scrollIntoView({
-            behavior:"smooth"
-        });
-
-    },1000);
-
-});
-// ===============================
-// CHAPTER 4 - SUCCESS & MUSIC
-// ===============================
-
-const solveBtn = document.getElementById("solveBtn");
-const successBox = document.getElementById("successBox");
-const continueBtn = document.getElementById("continueBtn");
-const bgMusic = document.getElementById("bgMusic");
-
-
-// Start music
-window.addEventListener("load", () => {
-
-    bgMusic.volume = 0.45;
-
-    bgMusic.play().catch(() => {
-        console.log("Music will start after user interaction.");
-    });
-
-});
-
-
-// Start music when user interacts
-document.addEventListener("click", () => {
-
-    if (bgMusic.paused) {
-        bgMusic.play().catch(() => {});
-    }
-
-}, { once: true });
-
-
-// ===============================
-// HELP BUTTON
-// ===============================
-
-solveBtn.addEventListener("click", () => {
-
-    // Arrange puzzle pieces automatically
-    const pieces = [...document.querySelectorAll(".puzzle-piece")];
-
-    pieces.sort((a, b) => {
-        return Number(a.dataset.correct) - Number(b.dataset.correct);
-    });
-
-    pieces.forEach(piece => {
-        puzzle.appendChild(piece);
-    });
-
-    // Hide help button
-    solveBtn.style.display = "none";
-
-    // Show success message
-    setTimeout(() => {
-
-        successBox.classList.remove("hidden");
-
-        successBox.scrollIntoView({
-            behavior: "smooth",
-            block: "center"
-        });
-
-    }, 800);
-
-});
-
-
-// ===============================
-// CONTINUE BUTTON
-// ===============================
-
-continueBtn.addEventListener("click", () => {
-
-    document.getElementById("quizSection").classList.remove("hidden");
-
-    document.getElementById("quizSection").scrollIntoView({
-        behavior: "smooth"
-    });
 
 });
