@@ -1,0 +1,475 @@
+/* =========================================
+   CHAPTER 5 — FINAL BIRTHDAY WISH
+========================================= */
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    overflow-x: hidden;
+    font-family: "Georgia", "Times New Roman", serif;
+    background:
+        radial-gradient(circle at 50% 20%, #332052 0%, #120d25 45%, #070511 100%);
+    color: #fff;
+}
+
+/* Background stars */
+
+#stars {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: -1;
+}
+
+/* =========================================
+   INTRO
+========================================= */
+
+.final-intro {
+    min-height: 100vh;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    text-align: center;
+
+    padding: 40px 20px;
+
+    animation: fadeIn 1.5s ease;
+}
+
+.intro-heart {
+    font-size: 70px;
+
+    margin-bottom: 25px;
+
+    animation: heartBeat 2s infinite;
+}
+
+.small-title {
+    color: #e8b6ff;
+
+    font-family: Arial, sans-serif;
+
+    letter-spacing: 7px;
+
+    font-size: 14px;
+
+    margin-bottom: 25px;
+}
+
+.final-intro h1 {
+    margin: 0;
+
+    font-size: clamp(42px, 7vw, 75px);
+
+    line-height: 1.1;
+
+    font-weight: 500;
+
+    background: linear-gradient(
+        90deg,
+        #fff,
+        #ffd6f6,
+        #dcb8ff,
+        #fff
+    );
+
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.intro-text {
+    margin-top: 30px;
+
+    color: #d7cce5;
+
+    font-size: 20px;
+
+    line-height: 1.8;
+}
+
+
+/* =========================================
+   START BUTTON
+========================================= */
+
+#startSurprise {
+    margin-top: 40px;
+
+    padding: 17px 38px;
+
+    border: 1px solid rgba(255,255,255,.25);
+
+    border-radius: 50px;
+
+    background: rgba(255,255,255,.08);
+
+    backdrop-filter: blur(10px);
+
+    color: white;
+
+    font-size: 18px;
+
+    font-family: Arial, sans-serif;
+
+    cursor: pointer;
+
+    transition: .4s;
+}
+
+#startSurprise:hover {
+    transform: translateY(-5px) scale(1.03);
+
+    background: rgba(255,255,255,.15);
+
+    box-shadow:
+        0 0 25px rgba(232,182,255,.35);
+}
+
+
+/* =========================================
+   HIDDEN
+========================================= */
+
+.hidden {
+    display: none !important;
+}
+
+
+/* =========================================
+   BIRTHDAY SECTION
+========================================= */
+
+#birthdaySection {
+    min-height: 100vh;
+
+    padding: 80px 20px 100px;
+
+    animation: birthdayReveal 1.5s ease;
+}
+
+.birthday-card {
+    max-width: 950px;
+
+    margin: auto;
+
+    text-align: center;
+}
+
+
+/* =========================================
+   TITLE
+========================================= */
+
+.mini-heading {
+    font-family: Arial, sans-serif;
+
+    color: #e8b6ff;
+
+    letter-spacing: 5px;
+
+    font-size: 13px;
+
+    margin-bottom: 20px;
+}
+
+.birthday-card > h1 {
+    font-size: clamp(50px, 8vw, 90px);
+
+    line-height: 1.05;
+
+    margin: 0;
+
+    font-weight: 500;
+}
+
+.birthday-card > h1 span {
+    background: linear-gradient(
+        90deg,
+        #ffb8e5,
+        #dcb8ff,
+        #fff0fb
+    );
+
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.birthday-subtitle {
+    color: #d9cce4;
+
+    font-size: 21px;
+
+    line-height: 1.8;
+
+    margin: 30px auto 50px;
+}
+
+
+/* =========================================
+   CAKE VIDEO
+========================================= */
+
+.cake-wrapper {
+    width: min(850px, 95vw);
+
+    margin: auto;
+
+    padding: 10px;
+
+    border-radius: 25px;
+
+    background: linear-gradient(
+        135deg,
+        rgba(255,255,255,.18),
+        rgba(255,255,255,.03)
+    );
+
+    box-shadow:
+        0 25px 70px rgba(0,0,0,.45),
+        0 0 40px rgba(220,184,255,.12);
+}
+
+.cake-wrapper video {
+    display: block;
+
+    width: 100%;
+
+    max-height: 70vh;
+
+    object-fit: contain;
+
+    border-radius: 18px;
+
+    background: #000;
+}
+
+.video-hint {
+    color: #bcb0ca;
+
+    font-family: Arial, sans-serif;
+
+    font-size: 14px;
+
+    margin-top: 18px;
+}
+
+
+/* =========================================
+   WISH CARD
+========================================= */
+
+.wish-card {
+    max-width: 780px;
+
+    margin: 90px auto 0;
+
+    padding: 55px 45px;
+
+    border-radius: 30px;
+
+    background: rgba(255,255,255,.055);
+
+    border: 1px solid rgba(255,255,255,.12);
+
+    backdrop-filter: blur(15px);
+
+    box-shadow:
+        0 25px 60px rgba(0,0,0,.3);
+}
+
+.wish-decoration {
+    font-size: 22px;
+
+    letter-spacing: 8px;
+
+    margin-bottom: 25px;
+}
+
+.wish-card h2 {
+    font-size: 38px;
+
+    font-weight: 500;
+
+    margin-bottom: 35px;
+}
+
+.wish-card p {
+    color: #ddd3e5;
+
+    font-size: 19px;
+
+    line-height: 2;
+
+    margin: 25px 0;
+}
+
+.final-line {
+    margin-top: 45px !important;
+
+    color: #f0d8ed !important;
+}
+
+.special-line {
+    font-size: 28px !important;
+
+    color: #ffd6f4;
+
+    margin-top: 15px !important;
+}
+
+
+/* =========================================
+   FINAL MESSAGE
+========================================= */
+
+.final-message {
+    max-width: 700px;
+
+    margin: 100px auto 0;
+
+    padding-top: 60px;
+
+    border-top: 1px solid rgba(255,255,255,.12);
+}
+
+.final-message h2 {
+    font-size: 38px;
+
+    font-weight: 500;
+}
+
+.final-message > p {
+    color: #cfc4d7;
+
+    font-size: 19px;
+
+    line-height: 1.9;
+
+    margin: 25px 0 45px;
+}
+
+.signature {
+    color: #c7b9ce;
+
+    font-size: 18px;
+
+    line-height: 2;
+}
+
+.signature span {
+    color: #ffd3ef;
+
+    font-size: 21px;
+}
+
+
+/* =========================================
+   ANIMATIONS
+========================================= */
+
+@keyframes fadeIn {
+
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+}
+
+@keyframes birthdayReveal {
+
+    from {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+}
+
+@keyframes heartBeat {
+
+    0%, 100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.12);
+    }
+
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 600px) {
+
+    .final-intro {
+        padding: 30px 18px;
+    }
+
+    .intro-heart {
+        font-size: 55px;
+    }
+
+    .intro-text {
+        font-size: 17px;
+    }
+
+    #startSurprise {
+        font-size: 16px;
+
+        padding: 15px 28px;
+    }
+
+    #birthdaySection {
+        padding: 55px 15px 70px;
+    }
+
+    .birthday-subtitle {
+        font-size: 17px;
+    }
+
+    .wish-card {
+        padding: 38px 22px;
+
+        margin-top: 65px;
+    }
+
+    .wish-card h2 {
+        font-size: 30px;
+    }
+
+    .wish-card p {
+        font-size: 17px;
+
+        line-height: 1.9;
+    }
+
+    .special-line {
+        font-size: 23px !important;
+    }
+
+    .final-message h2 {
+        font-size: 30px;
+    }
+
+}
