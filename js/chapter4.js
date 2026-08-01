@@ -348,15 +348,17 @@ document.addEventListener("DOMContentLoaded", () => {
 
     continueBtn.addEventListener("click", () => {
 
-        successBox.classList.add("hidden");
+    successBox.classList.add("hidden");
 
-        quizSection.classList.remove("hidden");
+    quizSection.classList.remove("hidden");
 
-        quizSection.scrollIntoView({
-            behavior: "smooth"
-        });
+    loadQuestion();   // 👈 ye line add karo
 
+    quizSection.scrollIntoView({
+        behavior:"smooth"
     });
+
+});
 
 
     // =====================================
