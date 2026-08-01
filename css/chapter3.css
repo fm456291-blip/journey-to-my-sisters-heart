@@ -84,9 +84,7 @@ body{
 /* Photos */
 
 .photo{
-
     width:220px;
-
     height:280px;
 
     object-fit:cover;
@@ -103,6 +101,11 @@ body{
 
     box-shadow:0 15px 35px rgba(0,0,0,.45);
 
+    display:block;
+
+    position:relative;
+
+    z-index:2;
 }
 
 .photo:nth-child(1){
@@ -228,9 +231,17 @@ body{
 @media(max-width:900px){
 
 .gallery{
+    display:grid;
 
-    grid-template-columns:repeat(2,180px);
+    grid-template-columns:repeat(3,220px);
 
+    gap:55px 35px;
+
+    justify-content:center;
+
+    align-items:start;
+
+    margin-bottom:80px;
 }
 
 .photo{
