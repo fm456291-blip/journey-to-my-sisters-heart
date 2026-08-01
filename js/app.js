@@ -3,27 +3,76 @@
 // Main JavaScript
 // ==========================================
 
-// ---------- Opening Screen ----------
+
+// ==========================================
+// ELEMENTS
+// ==========================================
+
+const opening = document.getElementById("opening-screen");
+
+const headphoneScreen =
+    document.getElementById("headphone-screen");
+
+const headphoneBtn =
+    document.getElementById("headphoneBtn");
+
+const beat =
+    document.getElementById("heartbeat");
+
+const startBtn =
+    document.getElementById("startBtn");
+
+
+// ==========================================
+// OPENING SCREEN
+// ==========================================
 
 document.addEventListener("DOMContentLoaded", () => {
 
-    const opening = document.getElementById("opening-screen");
-
     setTimeout(() => {
 
+        // Hide black opening screen
         opening.classList.add("hide");
 
-        const beat = document.getElementById("heartbeat");
+        // Show headphone screen
+        setTimeout(() => {
 
-        if (beat) {
-            beat.volume = 0.35;
-            beat.play().catch(() => {});
-        }
+            headphoneScreen.classList.add("show");
+
+        }, 1200);
 
     }, 3500);
 
 });
-// ---------- Typewriter ----------
+
+
+// ==========================================
+// HEADPHONE BUTTON
+// ==========================================
+
+headphoneBtn.addEventListener("click", () => {
+
+    // Start heartbeat
+    if (beat) {
+
+        beat.volume = 0.35;
+
+        beat.play().catch(() => {});
+
+    }
+
+    // Hide headphone screen
+    headphoneScreen.classList.remove("show");
+
+    // Start typewriter from beginning
+    startTypewriter();
+
+});
+
+
+// ==========================================
+// TYPEWRITER
+// ==========================================
 
 const messages = [
 
@@ -35,24 +84,47 @@ const messages = [
 
 ];
 
-const typewriter = document.getElementById("typewriter");
+const typewriter =
+    document.getElementById("typewriter");
 
 let line = 0;
+
 let letter = 0;
 
-function typing() {
+function startTypewriter(){
 
-    if (line >= messages.length) return;
+    // Clear anything typed before
+    typewriter.innerHTML = "";
 
-    if (letter < messages[line].length) {
+    line = 0;
 
-        typewriter.innerHTML += messages[line].charAt(letter);
+    letter = 0;
+
+    typing();
+
+}
+
+
+function typing(){
+
+    if(line >= messages.length){
+
+        return;
+
+    }
+
+    if(letter < messages[line].length){
+
+        typewriter.innerHTML +=
+            messages[line].charAt(letter);
 
         letter++;
 
-        setTimeout(typing, 60);
+        setTimeout(typing,60);
 
-    } else {
+    }
+
+    else{
 
         typewriter.innerHTML += "<br><br>";
 
@@ -60,46 +132,64 @@ function typing() {
 
         letter = 0;
 
-        setTimeout(typing, 700);
+        setTimeout(typing,700);
 
     }
 
 }
 
-typing();
 
+// ==========================================
+// STARS
+// ==========================================
 
-// ---------- Stars ----------
+const stars =
+    document.getElementById("stars");
 
-const stars = document.getElementById("stars");
+for(let i = 0; i < 220; i++){
 
-for (let i = 0; i < 220; i++) {
-
-    const star = document.createElement("div");
+    const star =
+        document.createElement("div");
 
     star.className = "star";
 
-    const size = Math.random() * 3 + 1;
+    const size =
+        Math.random() * 3 + 1;
 
-    star.style.width = size + "px";
-    star.style.height = size + "px";
+    star.style.width =
+        size + "px";
 
-    star.style.left = Math.random() * 100 + "%";
-    star.style.top = Math.random() * 100 + "%";
+    star.style.height =
+        size + "px";
 
-    star.style.animationDelay = Math.random() * 4 + "s";
+    star.style.left =
+        Math.random() * 100 + "%";
+
+    star.style.top =
+        Math.random() * 100 + "%";
+
+    star.style.animationDelay =
+        Math.random() * 4 + "s";
 
     stars.appendChild(star);
 
 }
 
 
-// ---------- Button ----------
+// ==========================================
+// START JOURNEY
+// ==========================================
 
-document
-.getElementById("startBtn")
-.addEventListener("click",()=>{
+startBtn.addEventListener("click", () => {
 
-    window.location.href="chapters/chapter1.html";
+    // Make sure heartbeat is playing
+    if(beat && beat.paused){
+
+        beat.play().catch(() => {});
+
+    }
+
+    window.location.href =
+        "chapters/chapter1.html";
 
 });
