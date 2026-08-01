@@ -269,3 +269,22 @@ document.addEventListener("DOMContentLoaded", () => {
     createPuzzle();
 
 });
+document.getElementById("solveBtn").addEventListener("click",()=>{
+
+    const pieces=[...document.querySelectorAll(".puzzle-piece")];
+
+    pieces
+    .sort((a,b)=>a.dataset.correct-b.dataset.correct)
+    .forEach(piece=>puzzle.appendChild(piece));
+
+    setTimeout(()=>{
+
+        successBox.classList.remove("hidden");
+
+        successBox.scrollIntoView({
+            behavior:"smooth"
+        });
+
+    },1000);
+
+});
