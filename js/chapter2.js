@@ -59,18 +59,26 @@ typeStory();
 
 
 // -------------------------------
-// Piano Music
-// -------------------------------
+ // =====================================
+    // MUSIC
+    // =====================================
 
-const music = document.getElementById("bgMusic");
+    bgMusic.volume = 0.60;
 
-document.body.addEventListener("click", () => {
+    // Browser may block autoplay.
+    // Music will start after first click if blocked.
 
-    music.volume = 0.45;
+    bgMusic.play().catch(() => {
+        console.log("Music will start after user interaction.");
+    });
 
-    music.play().catch(() => {});
+    document.addEventListener("click", () => {
 
-}, { once: true });
+        if (bgMusic.paused) {
+            bgMusic.play().catch(() => {});
+        }
+
+    }, { once: true });
 
 
 

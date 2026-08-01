@@ -10,7 +10,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // BACKGROUND MUSIC
     // =====================================
 
-    bgMusic.volume = 0.35;
+    bgMusic.volume = 0.60;
 
 
     // =====================================

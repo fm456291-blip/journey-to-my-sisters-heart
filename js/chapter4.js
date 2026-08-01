@@ -21,7 +21,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // MUSIC
     // =====================================
 
-    bgMusic.volume = 0.45;
+    bgMusic.volume = 0.60;
 
     // Browser may block autoplay.
     // Music will start after first click if blocked.

@@ -2,17 +2,26 @@
 // Chapter 3 - Memory Wall
 // ==========================================
 
-// ---------- Piano Music ----------
+ // =====================================
+    // MUSIC
+    // =====================================
 
-const music = document.getElementById("bgMusic");
+    bgMusic.volume = 0.60;
 
-window.addEventListener("DOMContentLoaded", () => {
+    // Browser may block autoplay.
+    // Music will start after first click if blocked.
 
-    music.volume = 0.35;
+    bgMusic.play().catch(() => {
+        console.log("Music will start after user interaction.");
+    });
 
-    music.play().catch(() => {});
+    document.addEventListener("click", () => {
 
-});
+        if (bgMusic.paused) {
+            bgMusic.play().catch(() => {});
+        }
+
+    }, { once: true });
 
 // ---------- Stars ----------
 

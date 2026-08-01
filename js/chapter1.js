@@ -1,12 +1,24 @@
-const music = document.getElementById("bgMusic");
+ // =====================================
+    // MUSIC
+    // =====================================
 
-window.addEventListener("DOMContentLoaded", () => {
-    music.volume = 0.4;
+    bgMusic.volume = 0.60;
 
-    music.play().catch(() => {
-        console.log("Autoplay blocked");
+    // Browser may block autoplay.
+    // Music will start after first click if blocked.
+
+    bgMusic.play().catch(() => {
+        console.log("Music will start after user interaction.");
     });
-});
+
+    document.addEventListener("click", () => {
+
+        if (bgMusic.paused) {
+            bgMusic.play().catch(() => {});
+        }
+
+    }, { once: true });
+
 const stars = document.getElementById("stars");
 
 for (let i = 0; i < 250; i++) {
