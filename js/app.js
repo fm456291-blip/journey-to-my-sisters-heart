@@ -168,3 +168,27 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
 });
+// ==========================================
+// PWA SERVICE WORKER
+// ==========================================
+
+if ("serviceWorker" in navigator) {
+
+    window.addEventListener("load", () => {
+
+        navigator.serviceWorker
+            .register("./sw.js")
+            .then(() => {
+
+                console.log("PWA ready ❤️");
+
+            })
+            .catch(error => {
+
+                console.log("PWA registration failed:", error);
+
+            });
+
+    });
+
+}
