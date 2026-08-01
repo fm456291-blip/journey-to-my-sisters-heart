@@ -367,7 +367,7 @@ body{
             #030207 100%
         );
 
-    display:none;
+    display:flex;
 
     justify-content:center;
 
@@ -378,12 +378,6 @@ body{
     z-index:9998;
 
     padding:25px;
-
-}
-
-#headphone-screen.show{
-
-    display:flex;
 
 }
 
