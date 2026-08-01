@@ -1,21 +1,20 @@
 {
-  "name": "For Kanwal ❤️",
-  "short_name": "For Kanwal",
-  "description": "A little birthday journey made especially for Kanwal ❤️",
-  "start_url": "./",
-  "scope": "./",
+  "name": "A Journey To My Sister's Heart",
+  "short_name": "For Kanwal ❤️",
+  "start_url": "./index.html",
   "display": "standalone",
   "background_color": "#06091f",
   "theme_color": "#06091f",
   "orientation": "portrait",
+  "description": "A little birthday journey made with love for Kanwal ❤️",
   "icons": [
     {
-      "src": "assets/icons/icon-192.png",
+      "src": "assets/images/app-icon-192.png",
       "sizes": "192x192",
       "type": "image/png"
     },
     {
-      "src": "assets/icons/icon-512.png",
+      "src": "assets/images/app-icon-512.png",
       "sizes": "512x512",
       "type": "image/png"
     }
