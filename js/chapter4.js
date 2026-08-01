@@ -364,5 +364,185 @@ document.addEventListener("DOMContentLoaded", () => {
     // =====================================
 
     createPuzzle();
+    // ======================================
+// QUIZ DATA
+// ======================================
+
+const questions = [
+
+{
+question:"Where did we first meet? ❤️",
+
+options:[
+"Library",
+"Classroom",
+"Cafe",
+"Online"
+],
+
+answer:1
+
+},
+
+{
+
+question:"What did you think I was? 😂",
+
+options:[
+"Student",
+"Teacher",
+"Librarian",
+"Senior"
+],
+
+answer:1
+
+},
+
+{
+
+question:"Which thing became our funniest memory?",
+
+options:[
+"Lost Notebook",
+"I was the teacher 😂",
+"Rain",
+"Late Arrival"
+],
+
+answer:1
+
+},
+
+{
+
+question:"Our friendship became...",
+
+options:[
+"Just classmates",
+"Neighbours",
+"Sisters ❤️",
+"Roommates"
+],
+
+answer:2
+
+},
+
+{
+
+question:"One word that describes us?",
+
+options:[
+"Memories ❤️",
+"Homework",
+"Assignments",
+"Exams"
+],
+
+answer:0
+
+}
+
+];
+
+
+
+let currentQuestion=0;
+let score=0;
+
+const questionBox=document.getElementById("questionBox");
+
+function loadQuestion(){
+
+const q=questions[currentQuestion];
+
+questionBox.innerHTML=`
+
+<div class="quiz-card">
+
+<h3>Question ${currentQuestion+1} / ${questions.length}</h3>
+
+<h2>${q.question}</h2>
+
+<div class="options">
+
+${q.options.map((option,index)=>`
+
+<button class="optionBtn" onclick="checkAnswer(${index})">
+
+${option}
+
+</button>
+
+`).join("")}
+
+</div>
+
+</div>
+
+`;
+
+}
+
+window.checkAnswer=function(index){
+
+if(index===questions[currentQuestion].answer){
+
+score++;
+
+}
+
+currentQuestion++;
+
+if(currentQuestion<questions.length){
+
+loadQuestion();
+
+}
+
+else{
+
+showResult();
+
+}
+
+}
+
+function showResult(){
+
+questionBox.innerHTML=`
+
+<div class="result-card">
+
+<h1>🎉 ${score}/${questions.length}</h1>
+
+<h2>You Know Our Story ❤️</h2>
+
+<p>
+
+These memories are not just moments...
+
+They are part of our hearts forever.
+
+</p>
+
+<button id="chapter5Btn">
+
+Continue To Chapter Five ❤️
+
+</button>
+
+</div>
+
+`;
+
+document.getElementById("chapter5Btn").onclick=function(){
+
+window.location.href="chapter5.html";
+
+}
+
+}
 
 });
