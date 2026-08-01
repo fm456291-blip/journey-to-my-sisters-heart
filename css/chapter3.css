@@ -72,14 +72,15 @@ body{
 }
 
 .memory-photo{
-    width: 100%;
-    max-width: 500px;
-    height: auto;
+    width: 380px;
+    height: 520px;
     object-fit: contain;
-    border-radius: 20px;
+    background: #111;
+    padding: 10px;
+    border-radius: 25px;
     display: block;
-    margin: 20px auto;
-
+    margin: auto;
+    box-shadow: 0 0 30px rgba(120,120,255,.4);
 }
 
 /* Memory Text */
