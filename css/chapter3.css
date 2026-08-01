@@ -266,3 +266,121 @@ body{
 }
 
 }
+/* ==========================================
+   GHAZAL MEMORY VIDEO
+========================================== */
+
+.ghazal-section{
+
+    width:100%;
+    max-width:900px;
+
+    margin:30px auto 100px;
+
+    padding:70px 20px;
+
+    text-align:center;
+
+}
+
+.ghazal-label{
+
+    color:var(--gold);
+
+    letter-spacing:4px;
+
+    font-size:13px;
+
+    margin-bottom:15px;
+
+}
+
+.ghazal-section h2{
+
+    color:white;
+
+    font-size:2.3rem;
+
+    margin:10px 0 15px;
+
+}
+
+.ghazal-intro{
+
+    color:#cbd5e1;
+
+    font-size:1.1rem;
+
+    margin-bottom:35px;
+
+}
+
+.ghazal-card{
+
+    width:100%;
+
+    padding:12px;
+
+    border-radius:25px;
+
+    background:rgba(255,255,255,.07);
+
+    border:1px solid rgba(255,255,255,.14);
+
+    backdrop-filter:blur(15px);
+
+    box-shadow:
+        0 25px 60px rgba(0,0,0,.45),
+        0 0 35px rgba(150,100,255,.12);
+
+}
+
+#ghazalVideo{
+
+    display:block;
+
+    width:100%;
+
+    max-height:550px;
+
+    object-fit:contain;
+
+    border-radius:18px;
+
+    background:#000;
+
+}
+
+.ghazal-hint{
+
+    color:#d8cce4;
+
+    font-size:14px;
+
+    margin:18px 0 8px;
+
+}
+
+@media(max-width:600px){
+
+    .ghazal-section{
+
+        padding:50px 15px;
+
+        margin-bottom:60px;
+
+    }
+
+    .ghazal-section h2{
+
+        font-size:1.8rem;
+
+    }
+
+    .ghazal-card{
+
+        padding:7px;
+
+    }
+
+}

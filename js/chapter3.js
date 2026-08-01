@@ -142,3 +142,39 @@ popup.style.display="none";
 }
 
 }
+// ==========================================
+// GHAZAL VIDEO + PIANO MUSIC SWITCH
+// ==========================================
+
+const ghazalVideo = document.getElementById("ghazalVideo");
+
+if (ghazalVideo) {
+
+    // When Ghazal starts
+    ghazalVideo.addEventListener("play", () => {
+
+        music.pause();
+
+    });
+
+
+    // When Ghazal is paused
+    ghazalVideo.addEventListener("pause", () => {
+
+        if (!ghazalVideo.ended) {
+
+            music.play().catch(() => {});
+
+        }
+
+    });
+
+
+    // When Ghazal finishes
+    ghazalVideo.addEventListener("ended", () => {
+
+        music.play().catch(() => {});
+
+    });
+
+}
